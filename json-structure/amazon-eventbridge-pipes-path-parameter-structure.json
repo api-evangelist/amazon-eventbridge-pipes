@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-path-parameter-structure.json",
+  "name": "PathParameter",
+  "description": "PathParameter schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^(?!\\s*$).+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$"
+}

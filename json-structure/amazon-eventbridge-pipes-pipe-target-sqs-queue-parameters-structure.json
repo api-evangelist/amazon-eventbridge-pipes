@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-target-sqs-queue-parameters-structure.json",
+  "name": "PipeTargetSqsQueueParameters",
+  "description": "The parameters for using a Amazon SQS stream as a source.",
+  "type": "object",
+  "properties": {
+    "MessageDeduplicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MessageDeduplicationId"
+        },
+        {
+          "description": "<p>This parameter applies only to FIFO (first-in-first-out) queues.</p> <p>The token used for deduplication of sent messages.</p>"
+        }
+      ]
+    },
+    "MessageGroupId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MessageGroupId"
+        },
+        {
+          "description": "The FIFO message group ID to use as the target."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-limit-max10000-structure.json",
+  "name": "LimitMax10000",
+  "description": "LimitMax10000 schema from Amazon EventBridge Pipes",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 10000
+}

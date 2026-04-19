@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-ecs-inference-accelerator-override-structure.json",
+  "name": "EcsInferenceAcceleratorOverride",
+  "description": "Details on an Elastic Inference accelerator task override. This parameter is used to override the Elastic Inference accelerator specified in the task definition. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-inference.html\">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.",
+  "type": "object",
+  "properties": {
+    "deviceName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Elastic Inference accelerator device name to override for the task. This parameter must match a <code>deviceName</code> specified in the task definition."
+        }
+      ]
+    },
+    "deviceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Elastic Inference accelerator type to use."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "ContainerOverrides": {},
+  "Cpu": {},
+  "EphemeralStorage": {},
+  "ExecutionRoleArn": {},
+  "InferenceAcceleratorOverrides": {},
+  "Memory": {},
+  "TaskRoleArn": {}
+}

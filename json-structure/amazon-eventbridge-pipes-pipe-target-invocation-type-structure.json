@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-target-invocation-type-structure.json",
+  "name": "PipeTargetInvocationType",
+  "description": "PipeTargetInvocationType schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "REQUEST_RESPONSE",
+    "FIRE_AND_FORGET"
+  ]
+}

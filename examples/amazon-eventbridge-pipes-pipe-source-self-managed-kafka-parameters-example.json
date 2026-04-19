@@ -1,0 +1,11 @@
+{
+  "AdditionalBootstrapServers": {},
+  "BatchSize": {},
+  "ConsumerGroupID": {},
+  "Credentials": {},
+  "MaximumBatchingWindowInSeconds": {},
+  "ServerRootCaCertificate": {},
+  "StartingPosition": {},
+  "TopicName": {},
+  "Vpc": {}
+}

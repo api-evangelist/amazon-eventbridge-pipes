@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-maximum-retry-attempts-esm-schema.json",
+  "title": "MaximumRetryAttemptsESM",
+  "description": "MaximumRetryAttemptsESM schema from Amazon EventBridge Pipes",
+  "type": "integer",
+  "minimum": -1,
+  "maximum": 10000
+}

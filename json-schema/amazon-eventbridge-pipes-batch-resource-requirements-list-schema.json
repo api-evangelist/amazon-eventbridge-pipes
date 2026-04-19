@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-batch-resource-requirements-list-schema.json",
+  "title": "BatchResourceRequirementsList",
+  "description": "BatchResourceRequirementsList schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/BatchResourceRequirement"
+  }
+}

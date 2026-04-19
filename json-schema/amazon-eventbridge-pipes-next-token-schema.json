@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-next-token-schema.json",
+  "title": "NextToken",
+  "description": "NextToken schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "minLength": 1,
+  "maxLength": 2048
+}

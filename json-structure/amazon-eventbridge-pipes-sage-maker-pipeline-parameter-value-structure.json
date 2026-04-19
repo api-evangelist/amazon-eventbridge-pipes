@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-sage-maker-pipeline-parameter-value-structure.json",
+  "name": "SageMakerPipelineParameterValue",
+  "description": "SageMakerPipelineParameterValue schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "minLength": 0,
+  "maxLength": 1024
+}

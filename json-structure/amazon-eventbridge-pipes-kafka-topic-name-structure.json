@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-kafka-topic-name-structure.json",
+  "name": "KafkaTopicName",
+  "description": "KafkaTopicName schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^[^.]([a-zA-Z0-9\\-_.]+)$",
+  "minLength": 1,
+  "maxLength": 249
+}

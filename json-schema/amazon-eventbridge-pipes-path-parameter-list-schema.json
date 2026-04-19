@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-path-parameter-list-schema.json",
+  "title": "PathParameterList",
+  "description": "PathParameterList schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/PathParameter"
+  },
+  "minItems": 0,
+  "maxItems": 1
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-list-pipes-response-structure.json",
+  "name": "ListPipesResponse",
+  "description": "ListPipesResponse schema from Amazon EventBridge Pipes",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error."
+        }
+      ]
+    },
+    "Pipes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeList"
+        },
+        {
+          "description": "The pipes returned by the call."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "BatchJobParameters": {},
+  "CloudWatchLogsParameters": {},
+  "EcsTaskParameters": {},
+  "EventBridgeEventBusParameters": {},
+  "HttpParameters": {},
+  "InputTemplate": {},
+  "KinesisStreamParameters": {},
+  "LambdaFunctionParameters": {},
+  "RedshiftDataParameters": {},
+  "SageMakerPipelineParameters": {}
+}

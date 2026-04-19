@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-integer-schema.json",
+  "title": "Integer",
+  "description": "Integer schema from Amazon EventBridge Pipes",
+  "type": "integer"
+}

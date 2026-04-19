@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-sage-maker-pipeline-parameter-list-structure.json",
+  "name": "SageMakerPipelineParameterList",
+  "description": "SageMakerPipelineParameterList schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SageMakerPipelineParameter"
+  },
+  "minItems": 0,
+  "maxItems": 200
+}

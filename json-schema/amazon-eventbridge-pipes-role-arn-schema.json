@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-role-arn-schema.json",
+  "title": "RoleArn",
+  "description": "RoleArn schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "pattern": "^arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z0-9+=,.@\\-_/]+$",
+  "minLength": 1,
+  "maxLength": 1600
+}

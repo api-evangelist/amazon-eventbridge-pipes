@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-json-path-schema.json",
+  "title": "JsonPath",
+  "description": "JsonPath schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "pattern": "^\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*$",
+  "minLength": 1,
+  "maxLength": 256
+}

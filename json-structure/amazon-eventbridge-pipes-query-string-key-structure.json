@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-query-string-key-structure.json",
+  "name": "QueryStringKey",
+  "description": "QueryStringKey schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "pattern": "^[^\\x00-\\x1F\\x7F]+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$",
+  "minLength": 0,
+  "maxLength": 512
+}

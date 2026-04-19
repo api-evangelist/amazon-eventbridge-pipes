@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-batch-resource-requirement-type-schema.json",
+  "title": "BatchResourceRequirementType",
+  "description": "BatchResourceRequirementType schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "GPU",
+    "MEMORY",
+    "VCPU"
+  ]
+}

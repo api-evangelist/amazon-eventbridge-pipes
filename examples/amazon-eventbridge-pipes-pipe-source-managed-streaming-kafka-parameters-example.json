@@ -1,0 +1,8 @@
+{
+  "BatchSize": {},
+  "ConsumerGroupID": {},
+  "Credentials": {},
+  "MaximumBatchingWindowInSeconds": {},
+  "StartingPosition": {},
+  "TopicName": {}
+}

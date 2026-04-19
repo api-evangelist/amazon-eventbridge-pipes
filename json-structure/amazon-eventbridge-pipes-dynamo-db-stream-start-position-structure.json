@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-dynamo-db-stream-start-position-structure.json",
+  "name": "DynamoDBStreamStartPosition",
+  "description": "DynamoDBStreamStartPosition schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "TRIM_HORIZON",
+    "LATEST"
+  ]
+}

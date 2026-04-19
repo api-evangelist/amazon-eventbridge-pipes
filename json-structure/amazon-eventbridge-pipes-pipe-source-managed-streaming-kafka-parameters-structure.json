@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-source-managed-streaming-kafka-parameters-structure.json",
+  "name": "PipeSourceManagedStreamingKafkaParameters",
+  "description": "The parameters for using an MSK stream as a source.",
+  "type": "object",
+  "properties": {
+    "BatchSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMax10000"
+        },
+        {
+          "description": "The maximum number of records to include in each batch."
+        }
+      ]
+    },
+    "ConsumerGroupID": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/URI"
+        },
+        {
+          "description": "The name of the destination queue to consume."
+        }
+      ]
+    },
+    "Credentials": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MSKAccessCredentials"
+        },
+        {
+          "description": "The credentials needed to access the resource."
+        }
+      ]
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumBatchingWindowInSeconds"
+        },
+        {
+          "description": "The maximum length of a time to wait for events."
+        }
+      ]
+    },
+    "StartingPosition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MSKStartPosition"
+        },
+        {
+          "description": "(Streams only) The position in a stream from which to start reading."
+        }
+      ]
+    },
+    "TopicName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KafkaTopicName"
+        },
+        {
+          "description": "The name of the topic that the pipe will read from."
+        }
+      ]
+    }
+  },
+  "required": [
+    "TopicName"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-kinesis-stream-start-position-structure.json",
+  "name": "KinesisStreamStartPosition",
+  "description": "KinesisStreamStartPosition schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "TRIM_HORIZON",
+    "LATEST",
+    "AT_TIMESTAMP"
+  ]
+}

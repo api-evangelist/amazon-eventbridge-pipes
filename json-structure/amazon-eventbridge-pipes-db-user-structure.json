@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-db-user-structure.json",
+  "name": "DbUser",
+  "description": "// Database user name",
+  "type": "string",
+  "format": "password",
+  "minLength": 1,
+  "maxLength": 128
+}

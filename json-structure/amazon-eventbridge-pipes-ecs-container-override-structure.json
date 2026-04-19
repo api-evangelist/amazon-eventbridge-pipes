@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-ecs-container-override-structure.json",
+  "name": "EcsContainerOverride",
+  "description": "The overrides that are sent to a container. An empty container override can be passed in. An example of an empty container override is <code>{\"containerOverrides\": [ ] }</code>. If a non-empty container override is specified, the <code>name</code> parameter must be included.",
+  "type": "object",
+  "properties": {
+    "Command": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringList"
+        },
+        {
+          "description": "The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name."
+        }
+      ]
+    },
+    "Cpu": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of <code>cpu</code> units reserved for the container, instead of the default value from the task definition. You must also specify a container name."
+        }
+      ]
+    },
+    "Environment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsEnvironmentVariableList"
+        },
+        {
+          "description": "The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name."
+        }
+      ]
+    },
+    "EnvironmentFiles": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsEnvironmentFileList"
+        },
+        {
+          "description": "A list of files containing the environment variables to pass to a container, instead of the value from the container definition."
+        }
+      ]
+    },
+    "Memory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name."
+        }
+      ]
+    },
+    "MemoryReservation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the container that receives the override. This parameter is required if any override is specified."
+        }
+      ]
+    },
+    "ResourceRequirements": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsResourceRequirementsList"
+        },
+        {
+          "description": "The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU."
+        }
+      ]
+    }
+  }
+}

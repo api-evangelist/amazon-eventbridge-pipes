@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-ecs-resource-requirement-type-structure.json",
+  "name": "EcsResourceRequirementType",
+  "description": "EcsResourceRequirementType schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "GPU",
+    "InferenceAccelerator"
+  ]
+}

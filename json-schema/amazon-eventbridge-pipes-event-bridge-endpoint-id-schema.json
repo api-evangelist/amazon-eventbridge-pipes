@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-event-bridge-endpoint-id-schema.json",
+  "title": "EventBridgeEndpointId",
+  "description": "EventBridgeEndpointId schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^[A-Za-z0-9\\-]+[\\.][A-Za-z0-9\\-]+$",
+  "minLength": 1,
+  "maxLength": 50
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-header-key-schema.json",
+  "title": "HeaderKey",
+  "description": "HeaderKey schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "pattern": "^[!#$%&'*+-.^_`|~0-9a-zA-Z]+|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)$",
+  "minLength": 0,
+  "maxLength": 512
+}

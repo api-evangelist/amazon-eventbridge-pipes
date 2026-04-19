@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-string-list-structure.json",
+  "name": "StringList",
+  "description": "StringList schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/String"
+  }
+}

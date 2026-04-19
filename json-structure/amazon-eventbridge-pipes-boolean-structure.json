@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-boolean-structure.json",
+  "name": "Boolean",
+  "description": "Boolean schema from Amazon EventBridge Pipes",
+  "type": "boolean"
+}

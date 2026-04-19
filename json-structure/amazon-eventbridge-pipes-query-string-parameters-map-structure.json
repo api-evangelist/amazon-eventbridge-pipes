@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-query-string-parameters-map-structure.json",
+  "name": "QueryStringParametersMap",
+  "description": "QueryStringParametersMap schema from Amazon EventBridge Pipes",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/QueryStringValue"
+  }
+}

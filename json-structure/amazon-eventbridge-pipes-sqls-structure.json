@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-sqls-structure.json",
+  "name": "Sqls",
+  "description": "// A list of SQLs.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Sql"
+  },
+  "minItems": 1
+}

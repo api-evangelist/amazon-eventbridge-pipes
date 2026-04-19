@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-kafka-bootstrap-servers-structure.json",
+  "name": "KafkaBootstrapServers",
+  "description": "KafkaBootstrapServers schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/EndpointString"
+  },
+  "minItems": 0,
+  "maxItems": 2
+}

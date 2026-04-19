@@ -1,0 +1,10 @@
+{
+  "BatchSize": {},
+  "DeadLetterConfig": {},
+  "MaximumBatchingWindowInSeconds": {},
+  "MaximumRecordAgeInSeconds": {},
+  "MaximumRetryAttempts": {},
+  "OnPartialBatchItemFailure": {},
+  "ParallelizationFactor": {},
+  "StartingPosition": {}
+}

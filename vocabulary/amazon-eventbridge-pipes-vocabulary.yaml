@@ -1,0 +1,149 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon EventBridge Pipes
+  description: Unified vocabulary and taxonomy for Amazon EventBridge Pipes APIs and capabilities
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon EventBridge Pipes
+    namespace: eventbridge_pipes
+    version: '2015-10-07'
+    baseUrl: 'http://pipes.{region}.amazonaws.com'
+    status: active
+  resources: []
+  actions:
+  - verb: describe
+    httpMethod: GET
+    pattern: read
+  - verb: create
+    httpMethod: POST
+    pattern: write
+  - verb: update
+    httpMethod: PUT
+    pattern: write
+  - verb: delete
+    httpMethod: DELETE
+    pattern: destructive
+  - verb: list
+    httpMethod: GET
+    pattern: read
+  - verb: tagres
+    httpMethod: POST
+    pattern: write
+  - verb: start
+    httpMethod: POST
+    pattern: write
+  - verb: stop
+    httpMethod: POST
+    pattern: write
+  - verb: untagr
+    httpMethod: DELETE
+    pattern: destructive
+  schemas:
+    core:
+    - name: CreatePipeResponse
+      description: CreatePipeResponse object
+    - name: PipeEnrichmentHttpParameters
+      description: 'These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified
+        on the Connection, with any values from the Connection taking precedence.'
+    - name: PipeSourceActiveMQBrokerParameters
+      description: The parameters for using an Active MQ broker as a source.
+    - name: PipeSourceDynamoDBStreamParameters
+      description: The parameters for using a DynamoDB stream as a source.
+    - name: FilterCriteria
+      description: 'The collection of event patterns used to filter events. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events
+        and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.'
+    - name: PipeSourceKinesisStreamParameters
+      description: The parameters for using a Kinesis stream as a source.
+    - name: PipeSourceManagedStreamingKafkaParameters
+      description: The parameters for using an MSK stream as a source.
+    - name: PipeSourceRabbitMQBrokerParameters
+      description: The parameters for using a Rabbit MQ broker as a source.
+    - name: PipeSourceSelfManagedKafkaParameters
+      description: The parameters for using a self-managed Apache Kafka stream as a source.
+  parameters:
+    pagination:
+    - name: MaxResults
+      description: Maximum number of results to return
+    - name: NextToken
+      description: Pagination token for next page of results
+    identifiers:
+    - name: Id
+      description: Resource identifier
+    - name: Arn
+      description: Amazon Resource Name
+  enums:
+    types:
+    - ENABLED
+    - DISABLED
+    - N_TO_N
+    - SEQUENTIAL
+    - GPU
+    - MEMORY
+    - VCPU
+    - TRIM_HORIZON
+    - LATEST
+    - s3
+    - GPU
+    - InferenceAccelerator
+    - TRIM_HORIZON
+    - LATEST
+    - AT_TIMESTAMP
+    - EC2
+    - FARGATE
+    - EXTERNAL
+    - TRIM_HORIZON
+    - LATEST
+    - AUTOMATIC_BISECT
+    - TRIM_HORIZON
+    - LATEST
+    - TASK_DEFINITION
+    - REQUEST_RESPONSE
+    - FIRE_AND_FORGET
+    - distinctInstance
+    - memberOf
+    - random
+    - spread
+    - binpack
+    states:
+    - RUNNING
+    - STOPPED
+    - RUNNING
+    - STOPPED
+    - CREATING
+    - UPDATING
+    - DELETING
+    - RUNNING
+    - STOPPED
+    - DELETED
+  authentication:
+  - name: hmac
+    type: apiKey
+capability:
+  workflows:
+  - name: Amazon EventBridge Pipes Management
+    file: capabilities/amazon-eventbridge-pipes-capability.yaml
+    description: Unified capability for managing Amazon EventBridge Pipes resources. Combines Amazon EventBridge Pipes APIs for Integration Engineer workflows in Event Processing.
+    toolCount: 10
+  personas:
+  - id: developer
+    name: Application Developer
+    description: Developers building applications using Amazon EventBridge Pipes
+  - id: operator
+    name: Cloud Operator
+    description: Operations teams managing Amazon EventBridge Pipes infrastructure
+  domains:
+  - name: Amazon EventBridge Pipes
+    description: Point-to-point integration between event producers and consumers
+  namespaces:
+  - type: consumed
+    namespace: eventbridge_pipes
+  - type: rest
+    namespace: amazon-eventbridge-pipes-api
+  - type: mcp
+    namespace: amazon-eventbridge-pipes-mcp
+  binds:
+  - AWS_API_KEY
+  - AWS_REGION
+crossReference: []

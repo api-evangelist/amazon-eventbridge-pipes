@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-security-group-id-schema.json",
+  "title": "SecurityGroupId",
+  "description": "SecurityGroupId schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^sg-[0-9a-zA-Z]*$",
+  "minLength": 1,
+  "maxLength": 1024
+}

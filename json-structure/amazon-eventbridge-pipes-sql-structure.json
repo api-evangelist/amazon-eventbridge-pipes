@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-sql-structure.json",
+  "name": "Sql",
+  "description": "// A single Redshift SQL",
+  "type": "string",
+  "format": "password",
+  "minLength": 1,
+  "maxLength": 100000
+}

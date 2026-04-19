@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-security-group-ids-structure.json",
+  "name": "SecurityGroupIds",
+  "description": "List of SecurityGroupId.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SecurityGroupId"
+  },
+  "minItems": 0,
+  "maxItems": 5
+}

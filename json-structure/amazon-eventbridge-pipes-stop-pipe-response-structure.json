@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-stop-pipe-response-structure.json",
+  "name": "StopPipeResponse",
+  "description": "StopPipeResponse schema from Amazon EventBridge Pipes",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeArn"
+        },
+        {
+          "description": "The ARN of the pipe."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the pipe was created."
+        }
+      ]
+    },
+    "CurrentState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeState"
+        },
+        {
+          "description": "The state the pipe is in."
+        }
+      ]
+    },
+    "DesiredState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RequestedPipeState"
+        },
+        {
+          "description": "The state the pipe should be in."
+        }
+      ]
+    },
+    "LastModifiedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD)."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeName"
+        },
+        {
+          "description": "The name of the pipe."
+        }
+      ]
+    }
+  }
+}

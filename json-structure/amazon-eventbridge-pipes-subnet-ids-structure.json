@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-subnet-ids-structure.json",
+  "name": "SubnetIds",
+  "description": "List of SubnetId.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SubnetId"
+  },
+  "minItems": 0,
+  "maxItems": 16
+}

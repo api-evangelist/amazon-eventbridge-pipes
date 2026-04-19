@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-structure.json",
+  "name": "Pipe",
+  "description": "An object that represents a pipe. Amazon EventBridgePipes connect event sources to targets and reduces the need for specialized knowledge and integration code.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeArn"
+        },
+        {
+          "description": "The ARN of the pipe."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the pipe was created."
+        }
+      ]
+    },
+    "CurrentState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeState"
+        },
+        {
+          "description": "The state the pipe is in."
+        }
+      ]
+    },
+    "DesiredState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RequestedPipeState"
+        },
+        {
+          "description": "The state the pipe should be in."
+        }
+      ]
+    },
+    "Enrichment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OptionalArn"
+        },
+        {
+          "description": "The ARN of the enrichment resource."
+        }
+      ]
+    },
+    "LastModifiedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD)."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeName"
+        },
+        {
+          "description": "The name of the pipe."
+        }
+      ]
+    },
+    "Source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrUrl"
+        },
+        {
+          "description": "The ARN of the source resource."
+        }
+      ]
+    },
+    "StateReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeStateReason"
+        },
+        {
+          "description": "The reason the pipe is in its current state."
+        }
+      ]
+    },
+    "Target": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The ARN of the target resource."
+        }
+      ]
+    }
+  }
+}

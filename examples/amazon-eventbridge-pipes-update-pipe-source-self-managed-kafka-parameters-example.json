@@ -1,0 +1,7 @@
+{
+  "BatchSize": {},
+  "Credentials": {},
+  "MaximumBatchingWindowInSeconds": {},
+  "ServerRootCaCertificate": {},
+  "Vpc": {}
+}

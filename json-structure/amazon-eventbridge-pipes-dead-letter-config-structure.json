@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-dead-letter-config-structure.json",
+  "name": "DeadLetterConfig",
+  "description": "A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue configuration.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The ARN of the Amazon SQS queue specified as the target for the dead-letter queue."
+        }
+      ]
+    }
+  }
+}

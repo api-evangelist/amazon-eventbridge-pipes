@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-pipe-target-state-machine-parameters-schema.json",
+  "title": "PipeTargetStateMachineParameters",
+  "description": "The parameters for using a Step Functions state machine as a target.",
+  "type": "object",
+  "properties": {
+    "InvocationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetInvocationType"
+        },
+        {
+          "description": "Specify whether to wait for the state machine to finish or not."
+        }
+      ]
+    }
+  }
+}

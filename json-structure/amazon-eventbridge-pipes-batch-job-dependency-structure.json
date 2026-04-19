@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-batch-job-dependency-structure.json",
+  "name": "BatchJobDependency",
+  "description": "An object that represents an Batch job dependency.",
+  "type": "object",
+  "properties": {
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The job ID of the Batch job that's associated with this dependency."
+        }
+      ]
+    },
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobDependencyType"
+        },
+        {
+          "description": "The type of the job dependency."
+        }
+      ]
+    }
+  }
+}

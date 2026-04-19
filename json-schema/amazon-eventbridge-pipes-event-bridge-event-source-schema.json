@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-event-bridge-event-source-schema.json",
+  "title": "EventBridgeEventSource",
+  "description": "EventBridgeEventSource schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "(?=[/\\.\\-_A-Za-z0-9]+)((?!aws\\.).*)|(\\$(\\.[\\w/_-]+(\\[(\\d+|\\*)\\])*)*)",
+  "minLength": 1,
+  "maxLength": 256
+}

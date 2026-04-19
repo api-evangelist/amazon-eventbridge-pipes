@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-state-structure.json",
+  "name": "PipeState",
+  "description": "PipeState schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "RUNNING",
+    "STOPPED",
+    "CREATING",
+    "UPDATING",
+    "DELETING",
+    "STARTING",
+    "STOPPING",
+    "CREATE_FAILED",
+    "UPDATE_FAILED",
+    "START_FAILED",
+    "STOP_FAILED"
+  ]
+}

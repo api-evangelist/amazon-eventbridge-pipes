@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-target-cloud-watch-logs-parameters-structure.json",
+  "name": "PipeTargetCloudWatchLogsParameters",
+  "description": "The parameters for using an CloudWatch Logs log stream as a target.",
+  "type": "object",
+  "properties": {
+    "LogStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogStreamName"
+        },
+        {
+          "description": "The name of the log stream."
+        }
+      ]
+    },
+    "Timestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JsonPath"
+        },
+        {
+          "description": "The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        }
+      ]
+    }
+  }
+}

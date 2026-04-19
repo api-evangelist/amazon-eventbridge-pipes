@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-ecs-environment-file-list-structure.json",
+  "name": "EcsEnvironmentFileList",
+  "description": "EcsEnvironmentFileList schema from Amazon EventBridge Pipes",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/EcsEnvironmentFile"
+  }
+}

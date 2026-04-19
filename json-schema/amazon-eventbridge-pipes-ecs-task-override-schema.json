@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-ecs-task-override-schema.json",
+  "title": "EcsTaskOverride",
+  "description": "The overrides that are associated with a task.",
+  "type": "object",
+  "properties": {
+    "ContainerOverrides": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsContainerOverrideList"
+        },
+        {
+          "description": "One or more container overrides that are sent to a task."
+        }
+      ]
+    },
+    "Cpu": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The cpu override for the task."
+        }
+      ]
+    },
+    "EphemeralStorage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsEphemeralStorage"
+        },
+        {
+          "description": "<p>The ephemeral storage setting override for the task.</p> <note> <p>This parameter is only supported for tasks hosted on Fargate that use the following platform versions:</p> <ul> <li> <p>Linux platform version <code>1.4.0</code> or later.</p> </li> <li> <p>Windows platform version <code>1.0.0</code> or later.</p> </li> </ul> </note>"
+        }
+      ]
+    },
+    "ExecutionRoleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrJsonPath"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html\">Amazon ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>."
+        }
+      ]
+    },
+    "InferenceAcceleratorOverrides": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsInferenceAcceleratorOverrideList"
+        },
+        {
+          "description": "The Elastic Inference accelerator override for the task."
+        }
+      ]
+    },
+    "Memory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The memory override for the task."
+        }
+      ]
+    },
+    "TaskRoleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrJsonPath"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>."
+        }
+      ]
+    }
+  }
+}

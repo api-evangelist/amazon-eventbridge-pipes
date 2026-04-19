@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-pipe-target-parameters-schema.json",
+  "title": "PipeTargetParameters",
+  "description": "The parameters required to set up a target for your pipe.",
+  "type": "object",
+  "properties": {
+    "BatchJobParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetBatchJobParameters"
+        },
+        {
+          "description": "The parameters for using an Batch job as a target."
+        }
+      ]
+    },
+    "CloudWatchLogsParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetCloudWatchLogsParameters"
+        },
+        {
+          "description": "The parameters for using an CloudWatch Logs log stream as a target."
+        }
+      ]
+    },
+    "EcsTaskParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetEcsTaskParameters"
+        },
+        {
+          "description": "The parameters for using an Amazon ECS task as a target."
+        }
+      ]
+    },
+    "EventBridgeEventBusParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetEventBridgeEventBusParameters"
+        },
+        {
+          "description": "The parameters for using an EventBridge event bus as a target."
+        }
+      ]
+    },
+    "HttpParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetHttpParameters"
+        },
+        {
+          "description": "These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations."
+        }
+      ]
+    },
+    "InputTemplate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputTemplate"
+        },
+        {
+          "description": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>."
+        }
+      ]
+    },
+    "KinesisStreamParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetKinesisStreamParameters"
+        },
+        {
+          "description": "The parameters for using a Kinesis stream as a source."
+        }
+      ]
+    },
+    "LambdaFunctionParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetLambdaFunctionParameters"
+        },
+        {
+          "description": "The parameters for using a Lambda function as a target."
+        }
+      ]
+    },
+    "RedshiftDataParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetRedshiftDataParameters"
+        },
+        {
+          "description": "These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement."
+        }
+      ]
+    },
+    "SageMakerPipelineParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetSageMakerPipelineParameters"
+        },
+        {
+          "description": "The parameters for using a SageMaker pipeline as a target."
+        }
+      ]
+    },
+    "SqsQueueParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetSqsQueueParameters"
+        },
+        {
+          "description": "The parameters for using a Amazon SQS stream as a source."
+        }
+      ]
+    },
+    "StepFunctionStateMachineParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetStateMachineParameters"
+        },
+        {
+          "description": "The parameters for using a Step Functions state machine as a target."
+        }
+      ]
+    }
+  }
+}

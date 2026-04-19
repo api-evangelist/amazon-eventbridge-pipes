@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-describe-pipe-response-schema.json",
+  "title": "DescribePipeResponse",
+  "description": "DescribePipeResponse schema from Amazon EventBridge Pipes",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeArn"
+        },
+        {
+          "description": "The ARN of the pipe."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the pipe was created."
+        }
+      ]
+    },
+    "CurrentState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeState"
+        },
+        {
+          "description": "The state the pipe is in."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeDescription"
+        },
+        {
+          "description": "A description of the pipe."
+        }
+      ]
+    },
+    "DesiredState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RequestedPipeStateDescribeResponse"
+        },
+        {
+          "description": "The state the pipe should be in."
+        }
+      ]
+    },
+    "Enrichment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OptionalArn"
+        },
+        {
+          "description": "The ARN of the enrichment resource."
+        }
+      ]
+    },
+    "EnrichmentParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeEnrichmentParameters"
+        },
+        {
+          "description": "The parameters required to set up enrichment on your pipe."
+        }
+      ]
+    },
+    "LastModifiedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD)."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeName"
+        },
+        {
+          "description": "The name of the pipe."
+        }
+      ]
+    },
+    "RoleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the role that allows the pipe to send data to the target."
+        }
+      ]
+    },
+    "Source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrUrl"
+        },
+        {
+          "description": "The ARN of the source resource."
+        }
+      ]
+    },
+    "SourceParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeSourceParameters"
+        },
+        {
+          "description": "The parameters required to set up a source for your pipe."
+        }
+      ]
+    },
+    "StateReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeStateReason"
+        },
+        {
+          "description": "The reason the pipe is in its current state."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The list of key-value pairs to associate with the pipe."
+        }
+      ]
+    },
+    "Target": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The ARN of the target resource."
+        }
+      ]
+    },
+    "TargetParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetParameters"
+        },
+        {
+          "description": "The parameters required to set up a target for your pipe."
+        }
+      ]
+    }
+  }
+}

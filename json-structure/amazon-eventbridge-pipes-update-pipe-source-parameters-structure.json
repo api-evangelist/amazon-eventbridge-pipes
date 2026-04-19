@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-update-pipe-source-parameters-structure.json",
+  "name": "UpdatePipeSourceParameters",
+  "description": "The parameters required to set up a source for your pipe.",
+  "type": "object",
+  "properties": {
+    "ActiveMQBrokerParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceActiveMQBrokerParameters"
+        },
+        {
+          "description": "The parameters for using an Active MQ broker as a source."
+        }
+      ]
+    },
+    "DynamoDBStreamParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceDynamoDBStreamParameters"
+        },
+        {
+          "description": "The parameters for using a DynamoDB stream as a source."
+        }
+      ]
+    },
+    "FilterCriteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterCriteria"
+        },
+        {
+          "description": "The collection of event patterns used to filter events. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>."
+        }
+      ]
+    },
+    "KinesisStreamParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceKinesisStreamParameters"
+        },
+        {
+          "description": "The parameters for using a Kinesis stream as a source."
+        }
+      ]
+    },
+    "ManagedStreamingKafkaParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceManagedStreamingKafkaParameters"
+        },
+        {
+          "description": "The parameters for using an MSK stream as a source."
+        }
+      ]
+    },
+    "RabbitMQBrokerParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceRabbitMQBrokerParameters"
+        },
+        {
+          "description": "The parameters for using a Rabbit MQ broker as a source."
+        }
+      ]
+    },
+    "SelfManagedKafkaParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceSelfManagedKafkaParameters"
+        },
+        {
+          "description": "The parameters for using a self-managed Apache Kafka stream as a source."
+        }
+      ]
+    },
+    "SqsQueueParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdatePipeSourceSqsQueueParameters"
+        },
+        {
+          "description": "The parameters for using a Amazon SQS stream as a source."
+        }
+      ]
+    }
+  }
+}

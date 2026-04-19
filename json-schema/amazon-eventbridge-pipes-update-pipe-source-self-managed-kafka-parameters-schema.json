@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-update-pipe-source-self-managed-kafka-parameters-schema.json",
+  "title": "UpdatePipeSourceSelfManagedKafkaParameters",
+  "description": "The parameters for using a self-managed Apache Kafka stream as a source.",
+  "type": "object",
+  "properties": {
+    "BatchSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMax10000"
+        },
+        {
+          "description": "The maximum number of records to include in each batch."
+        }
+      ]
+    },
+    "Credentials": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SelfManagedKafkaAccessConfigurationCredentials"
+        },
+        {
+          "description": "The credentials needed to access the resource."
+        }
+      ]
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumBatchingWindowInSeconds"
+        },
+        {
+          "description": "The maximum length of a time to wait for events."
+        }
+      ]
+    },
+    "ServerRootCaCertificate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecretManagerArn"
+        },
+        {
+          "description": "The ARN of the Secrets Manager secret used for certification."
+        }
+      ]
+    },
+    "Vpc": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SelfManagedKafkaAccessConfigurationVpc"
+        },
+        {
+          "description": "This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used."
+        }
+      ]
+    }
+  }
+}

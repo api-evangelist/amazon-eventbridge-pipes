@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-subnet-id-structure.json",
+  "name": "SubnetId",
+  "description": "SubnetId schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^subnet-[0-9a-z]*$",
+  "minLength": 1,
+  "maxLength": 1024
+}

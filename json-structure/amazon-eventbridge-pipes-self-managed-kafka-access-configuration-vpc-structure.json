@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-self-managed-kafka-access-configuration-vpc-structure.json",
+  "name": "SelfManagedKafkaAccessConfigurationVpc",
+  "description": "This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.",
+  "type": "object",
+  "properties": {
+    "SecurityGroup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupIds"
+        },
+        {
+          "description": "Specifies the security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used."
+        }
+      ]
+    },
+    "Subnets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SubnetIds"
+        },
+        {
+          "description": "Specifies the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets."
+        }
+      ]
+    }
+  }
+}

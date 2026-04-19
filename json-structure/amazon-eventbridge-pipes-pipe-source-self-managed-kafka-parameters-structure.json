@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-source-self-managed-kafka-parameters-structure.json",
+  "name": "PipeSourceSelfManagedKafkaParameters",
+  "description": "The parameters for using a self-managed Apache Kafka stream as a source.",
+  "type": "object",
+  "properties": {
+    "AdditionalBootstrapServers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KafkaBootstrapServers"
+        },
+        {
+          "description": "An array of server URLs."
+        }
+      ]
+    },
+    "BatchSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMax10000"
+        },
+        {
+          "description": "The maximum number of records to include in each batch."
+        }
+      ]
+    },
+    "ConsumerGroupID": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/URI"
+        },
+        {
+          "description": "The name of the destination queue to consume."
+        }
+      ]
+    },
+    "Credentials": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SelfManagedKafkaAccessConfigurationCredentials"
+        },
+        {
+          "description": "The credentials needed to access the resource."
+        }
+      ]
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumBatchingWindowInSeconds"
+        },
+        {
+          "description": "The maximum length of a time to wait for events."
+        }
+      ]
+    },
+    "ServerRootCaCertificate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecretManagerArn"
+        },
+        {
+          "description": "The ARN of the Secrets Manager secret used for certification."
+        }
+      ]
+    },
+    "StartingPosition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SelfManagedKafkaStartPosition"
+        },
+        {
+          "description": "(Streams only) The position in a stream from which to start reading."
+        }
+      ]
+    },
+    "TopicName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KafkaTopicName"
+        },
+        {
+          "description": "The name of the topic that the pipe will read from."
+        }
+      ]
+    },
+    "Vpc": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SelfManagedKafkaAccessConfigurationVpc"
+        },
+        {
+          "description": "This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used."
+        }
+      ]
+    }
+  },
+  "required": [
+    "TopicName"
+  ]
+}

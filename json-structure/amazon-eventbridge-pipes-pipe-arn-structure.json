@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-arn-structure.json",
+  "name": "PipeArn",
+  "description": "PipeArn schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "pattern": "^arn:aws([a-z]|\\-)*:([a-zA-Z0-9\\-]+):([a-z]|\\d|\\-)*:([0-9]{12})?:(.+)$",
+  "minLength": 1,
+  "maxLength": 1600
+}

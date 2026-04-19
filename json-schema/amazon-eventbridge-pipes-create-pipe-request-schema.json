@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-create-pipe-request-schema.json",
+  "title": "CreatePipeRequest",
+  "description": "CreatePipeRequest schema from Amazon EventBridge Pipes",
+  "type": "object",
+  "properties": {
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeDescription"
+        },
+        {
+          "description": "A description of the pipe."
+        }
+      ]
+    },
+    "DesiredState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RequestedPipeState"
+        },
+        {
+          "description": "The state the pipe should be in."
+        }
+      ]
+    },
+    "Enrichment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OptionalArn"
+        },
+        {
+          "description": "The ARN of the enrichment resource."
+        }
+      ]
+    },
+    "EnrichmentParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeEnrichmentParameters"
+        },
+        {
+          "description": "The parameters required to set up enrichment on your pipe."
+        }
+      ]
+    },
+    "RoleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the role that allows the pipe to send data to the target."
+        }
+      ]
+    },
+    "Source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrUrl"
+        },
+        {
+          "description": "The ARN of the source resource."
+        }
+      ]
+    },
+    "SourceParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeSourceParameters"
+        },
+        {
+          "description": "The parameters required to set up a source for your pipe."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The list of key-value pairs to associate with the pipe."
+        }
+      ]
+    },
+    "Target": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The ARN of the target resource."
+        }
+      ]
+    },
+    "TargetParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipeTargetParameters"
+        },
+        {
+          "description": "The parameters required to set up a target for your pipe."
+        }
+      ]
+    }
+  },
+  "required": [
+    "RoleArn",
+    "Source",
+    "Target"
+  ]
+}

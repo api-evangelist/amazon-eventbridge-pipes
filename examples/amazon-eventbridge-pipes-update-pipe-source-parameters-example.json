@@ -1,0 +1,10 @@
+{
+  "ActiveMQBrokerParameters": {},
+  "DynamoDBStreamParameters": {},
+  "FilterCriteria": {},
+  "KinesisStreamParameters": {},
+  "ManagedStreamingKafkaParameters": {},
+  "RabbitMQBrokerParameters": {},
+  "SelfManagedKafkaParameters": {},
+  "SqsQueueParameters": {}
+}

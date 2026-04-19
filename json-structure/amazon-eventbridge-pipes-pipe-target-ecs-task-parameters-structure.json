@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-pipe-target-ecs-task-parameters-structure.json",
+  "name": "PipeTargetEcsTaskParameters",
+  "description": "The parameters for using an Amazon ECS task as a target.",
+  "type": "object",
+  "properties": {
+    "CapacityProviderStrategy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityProviderStrategy"
+        },
+        {
+          "description": "<p>The capacity provider strategy to use for the task.</p> <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code> parameter must be omitted. If no <code>capacityProviderStrategy</code> or launchType is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is used. </p>"
+        }
+      ]
+    },
+    "EnableECSManagedTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html\">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer Guide. "
+        }
+      ]
+    },
+    "EnableExecuteCommand": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task."
+        }
+      ]
+    },
+    "Group": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Specifies an Amazon ECS task group for the task. The maximum length is 255 characters."
+        }
+      ]
+    },
+    "LaunchType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchType"
+        },
+        {
+          "description": "Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html\">Fargate on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>."
+        }
+      ]
+    },
+    "NetworkConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkConfiguration"
+        },
+        {
+          "description": "<p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode is required for Fargate tasks.</p> <p>If you specify <code>NetworkConfiguration</code> when the target ECS task does not use the <code>awsvpc</code> network mode, the task fails.</p>"
+        }
+      ]
+    },
+    "Overrides": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcsTaskOverride"
+        },
+        {
+          "description": "The overrides that are associated with a task."
+        }
+      ]
+    },
+    "PlacementConstraints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PlacementConstraints"
+        },
+        {
+          "description": "An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime)."
+        }
+      ]
+    },
+    "PlacementStrategy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PlacementStrategies"
+        },
+        {
+          "description": "The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. "
+        }
+      ]
+    },
+    "PlatformVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "<p>Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as <code>1.1.0</code>.</p> <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For more information about valid platform versions, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html\">Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"
+        }
+      ]
+    },
+    "PropagateTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropagateTags"
+        },
+        {
+          "description": "Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the <code>TagResource</code> API action. "
+        }
+      ]
+    },
+    "ReferenceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReferenceId"
+        },
+        {
+          "description": "The reference ID to use for the task."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagList"
+        },
+        {
+          "description": "The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags\">RunTask</a> in the Amazon ECS API Reference."
+        }
+      ]
+    },
+    "TaskCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMin1"
+        },
+        {
+          "description": "The number of tasks to create based on <code>TaskDefinition</code>. The default is 1."
+        }
+      ]
+    },
+    "TaskDefinitionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnOrJsonPath"
+        },
+        {
+          "description": "The ARN of the task definition to use if the event target is an Amazon ECS task. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "TaskDefinitionArn"
+  ]
+}

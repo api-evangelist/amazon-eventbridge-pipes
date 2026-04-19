@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-statement-name-schema.json",
+  "title": "StatementName",
+  "description": "// A name for Redshift DataAPI statement which can be used as filter of // ListStatement.",
+  "type": "string",
+  "format": "password",
+  "minLength": 1,
+  "maxLength": 500
+}

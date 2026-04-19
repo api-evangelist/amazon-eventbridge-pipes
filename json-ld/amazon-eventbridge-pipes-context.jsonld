@@ -1,0 +1,612 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AwsVpcConfiguration": "aws:AwsVpcConfiguration",
+    "AssignPublicIp": {
+      "@id": "aws:AssignPublicIp",
+      "@type": "xsd:string"
+    },
+    "SecurityGroups": {
+      "@id": "aws:SecurityGroups",
+      "@type": "xsd:string"
+    },
+    "Subnets": {
+      "@id": "aws:Subnets",
+      "@type": "xsd:string"
+    },
+    "BatchArrayProperties": "aws:BatchArrayProperties",
+    "Size": {
+      "@id": "aws:Size",
+      "@type": "xsd:string"
+    },
+    "BatchContainerOverrides": "aws:BatchContainerOverrides",
+    "Command": {
+      "@id": "aws:Command",
+      "@type": "xsd:string"
+    },
+    "Environment": {
+      "@id": "aws:Environment",
+      "@type": "xsd:string"
+    },
+    "InstanceType": {
+      "@id": "aws:InstanceType",
+      "@type": "xsd:string"
+    },
+    "ResourceRequirements": {
+      "@id": "aws:ResourceRequirements",
+      "@type": "xsd:string"
+    },
+    "BatchEnvironmentVariable": "aws:BatchEnvironmentVariable",
+    "Name": {
+      "@id": "aws:Name",
+      "@type": "xsd:string"
+    },
+    "Value": {
+      "@id": "aws:Value",
+      "@type": "xsd:string"
+    },
+    "BatchJobDependency": "aws:BatchJobDependency",
+    "JobId": {
+      "@id": "aws:JobId",
+      "@type": "xsd:string"
+    },
+    "Type": {
+      "@id": "aws:Type",
+      "@type": "xsd:string"
+    },
+    "BatchParametersMap": "aws:BatchParametersMap",
+    "BatchResourceRequirement": "aws:BatchResourceRequirement",
+    "BatchRetryStrategy": "aws:BatchRetryStrategy",
+    "Attempts": {
+      "@id": "aws:Attempts",
+      "@type": "xsd:string"
+    },
+    "CapacityProviderStrategyItem": "aws:CapacityProviderStrategyItem",
+    "base": {
+      "@id": "aws:base",
+      "@type": "xsd:string"
+    },
+    "capacityProvider": {
+      "@id": "aws:capacityProvider",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "aws:weight",
+      "@type": "xsd:string"
+    },
+    "CreatePipeRequest": "aws:CreatePipeRequest",
+    "Description": {
+      "@id": "aws:Description",
+      "@type": "xsd:string"
+    },
+    "DesiredState": {
+      "@id": "aws:DesiredState",
+      "@type": "xsd:string"
+    },
+    "Enrichment": {
+      "@id": "aws:Enrichment",
+      "@type": "xsd:string"
+    },
+    "EnrichmentParameters": {
+      "@id": "aws:EnrichmentParameters",
+      "@type": "xsd:string"
+    },
+    "RoleArn": {
+      "@id": "aws:RoleArn",
+      "@type": "xsd:string"
+    },
+    "Source": {
+      "@id": "aws:Source",
+      "@type": "xsd:string"
+    },
+    "SourceParameters": {
+      "@id": "aws:SourceParameters",
+      "@type": "xsd:string"
+    },
+    "Tags": {
+      "@id": "aws:Tags",
+      "@type": "xsd:string"
+    },
+    "Target": {
+      "@id": "aws:Target",
+      "@type": "xsd:string"
+    },
+    "TargetParameters": {
+      "@id": "aws:TargetParameters",
+      "@type": "xsd:string"
+    },
+    "CreatePipeResponse": "aws:CreatePipeResponse",
+    "Arn": {
+      "@id": "aws:Arn",
+      "@type": "xsd:string"
+    },
+    "CreationTime": {
+      "@id": "aws:CreationTime",
+      "@type": "xsd:string"
+    },
+    "CurrentState": {
+      "@id": "aws:CurrentState",
+      "@type": "xsd:string"
+    },
+    "LastModifiedTime": {
+      "@id": "aws:LastModifiedTime",
+      "@type": "xsd:string"
+    },
+    "DeadLetterConfig": "aws:DeadLetterConfig",
+    "DeletePipeRequest": "aws:DeletePipeRequest",
+    "DeletePipeResponse": "aws:DeletePipeResponse",
+    "DescribePipeRequest": "aws:DescribePipeRequest",
+    "DescribePipeResponse": "aws:DescribePipeResponse",
+    "StateReason": {
+      "@id": "aws:StateReason",
+      "@type": "xsd:string"
+    },
+    "EcsContainerOverride": "aws:EcsContainerOverride",
+    "Cpu": {
+      "@id": "aws:Cpu",
+      "@type": "xsd:string"
+    },
+    "EnvironmentFiles": {
+      "@id": "aws:EnvironmentFiles",
+      "@type": "xsd:string"
+    },
+    "Memory": {
+      "@id": "aws:Memory",
+      "@type": "xsd:string"
+    },
+    "MemoryReservation": {
+      "@id": "aws:MemoryReservation",
+      "@type": "xsd:string"
+    },
+    "EcsEnvironmentFile": "aws:EcsEnvironmentFile",
+    "type": {
+      "@id": "aws:type",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "aws:value",
+      "@type": "xsd:string"
+    },
+    "EcsEnvironmentVariable": "aws:EcsEnvironmentVariable",
+    "name": "schema:name",
+    "EcsEphemeralStorage": "aws:EcsEphemeralStorage",
+    "sizeInGiB": {
+      "@id": "aws:sizeInGiB",
+      "@type": "xsd:string"
+    },
+    "EcsInferenceAcceleratorOverride": "aws:EcsInferenceAcceleratorOverride",
+    "deviceName": {
+      "@id": "aws:deviceName",
+      "@type": "xsd:string"
+    },
+    "deviceType": {
+      "@id": "aws:deviceType",
+      "@type": "xsd:string"
+    },
+    "EcsResourceRequirement": "aws:EcsResourceRequirement",
+    "EcsTaskOverride": "aws:EcsTaskOverride",
+    "ContainerOverrides": {
+      "@id": "aws:ContainerOverrides",
+      "@type": "xsd:string"
+    },
+    "EphemeralStorage": {
+      "@id": "aws:EphemeralStorage",
+      "@type": "xsd:string"
+    },
+    "ExecutionRoleArn": {
+      "@id": "aws:ExecutionRoleArn",
+      "@type": "xsd:string"
+    },
+    "InferenceAcceleratorOverrides": {
+      "@id": "aws:InferenceAcceleratorOverrides",
+      "@type": "xsd:string"
+    },
+    "TaskRoleArn": {
+      "@id": "aws:TaskRoleArn",
+      "@type": "xsd:string"
+    },
+    "FilterCriteria": "aws:FilterCriteria",
+    "Filters": {
+      "@id": "aws:Filters",
+      "@type": "xsd:string"
+    },
+    "Filter": "aws:Filter",
+    "Pattern": {
+      "@id": "aws:Pattern",
+      "@type": "xsd:string"
+    },
+    "HeaderParametersMap": "aws:HeaderParametersMap",
+    "ListPipesRequest": "aws:ListPipesRequest",
+    "ListPipesResponse": "aws:ListPipesResponse",
+    "NextToken": {
+      "@id": "aws:NextToken",
+      "@type": "xsd:string"
+    },
+    "Pipes": {
+      "@id": "aws:Pipes",
+      "@type": "xsd:string"
+    },
+    "ListTagsForResourceRequest": "aws:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "aws:ListTagsForResourceResponse",
+    "tags": {
+      "@id": "aws:tags",
+      "@type": "xsd:string"
+    },
+    "MQBrokerAccessCredentials": "aws:MQBrokerAccessCredentials",
+    "BasicAuth": {
+      "@id": "aws:BasicAuth",
+      "@type": "xsd:string"
+    },
+    "MSKAccessCredentials": "aws:MSKAccessCredentials",
+    "ClientCertificateTlsAuth": {
+      "@id": "aws:ClientCertificateTlsAuth",
+      "@type": "xsd:string"
+    },
+    "SaslScram512Auth": {
+      "@id": "aws:SaslScram512Auth",
+      "@type": "xsd:string"
+    },
+    "NetworkConfiguration": "aws:NetworkConfiguration",
+    "awsvpcConfiguration": {
+      "@id": "aws:awsvpcConfiguration",
+      "@type": "xsd:string"
+    },
+    "PipeEnrichmentHttpParameters": "aws:PipeEnrichmentHttpParameters",
+    "HeaderParameters": {
+      "@id": "aws:HeaderParameters",
+      "@type": "xsd:string"
+    },
+    "PathParameterValues": {
+      "@id": "aws:PathParameterValues",
+      "@type": "xsd:string"
+    },
+    "QueryStringParameters": {
+      "@id": "aws:QueryStringParameters",
+      "@type": "xsd:string"
+    },
+    "PipeEnrichmentParameters": "aws:PipeEnrichmentParameters",
+    "HttpParameters": {
+      "@id": "aws:HttpParameters",
+      "@type": "xsd:string"
+    },
+    "InputTemplate": {
+      "@id": "aws:InputTemplate",
+      "@type": "xsd:string"
+    },
+    "Pipe": "aws:Pipe",
+    "PipeSourceActiveMQBrokerParameters": "aws:PipeSourceActiveMQBrokerParameters",
+    "BatchSize": {
+      "@id": "aws:BatchSize",
+      "@type": "xsd:string"
+    },
+    "Credentials": {
+      "@id": "aws:Credentials",
+      "@type": "xsd:string"
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "@id": "aws:MaximumBatchingWindowInSeconds",
+      "@type": "xsd:string"
+    },
+    "QueueName": {
+      "@id": "aws:QueueName",
+      "@type": "xsd:string"
+    },
+    "PipeSourceDynamoDBStreamParameters": "aws:PipeSourceDynamoDBStreamParameters",
+    "MaximumRecordAgeInSeconds": {
+      "@id": "aws:MaximumRecordAgeInSeconds",
+      "@type": "xsd:string"
+    },
+    "MaximumRetryAttempts": {
+      "@id": "aws:MaximumRetryAttempts",
+      "@type": "xsd:string"
+    },
+    "OnPartialBatchItemFailure": {
+      "@id": "aws:OnPartialBatchItemFailure",
+      "@type": "xsd:string"
+    },
+    "ParallelizationFactor": {
+      "@id": "aws:ParallelizationFactor",
+      "@type": "xsd:string"
+    },
+    "StartingPosition": {
+      "@id": "aws:StartingPosition",
+      "@type": "xsd:string"
+    },
+    "PipeSourceKinesisStreamParameters": "aws:PipeSourceKinesisStreamParameters",
+    "StartingPositionTimestamp": {
+      "@id": "aws:StartingPositionTimestamp",
+      "@type": "xsd:string"
+    },
+    "PipeSourceManagedStreamingKafkaParameters": "aws:PipeSourceManagedStreamingKafkaParameters",
+    "ConsumerGroupID": {
+      "@id": "aws:ConsumerGroupID",
+      "@type": "xsd:string"
+    },
+    "TopicName": {
+      "@id": "aws:TopicName",
+      "@type": "xsd:string"
+    },
+    "PipeSourceParameters": "aws:PipeSourceParameters",
+    "ActiveMQBrokerParameters": {
+      "@id": "aws:ActiveMQBrokerParameters",
+      "@type": "xsd:string"
+    },
+    "DynamoDBStreamParameters": {
+      "@id": "aws:DynamoDBStreamParameters",
+      "@type": "xsd:string"
+    },
+    "KinesisStreamParameters": {
+      "@id": "aws:KinesisStreamParameters",
+      "@type": "xsd:string"
+    },
+    "ManagedStreamingKafkaParameters": {
+      "@id": "aws:ManagedStreamingKafkaParameters",
+      "@type": "xsd:string"
+    },
+    "RabbitMQBrokerParameters": {
+      "@id": "aws:RabbitMQBrokerParameters",
+      "@type": "xsd:string"
+    },
+    "SelfManagedKafkaParameters": {
+      "@id": "aws:SelfManagedKafkaParameters",
+      "@type": "xsd:string"
+    },
+    "SqsQueueParameters": {
+      "@id": "aws:SqsQueueParameters",
+      "@type": "xsd:string"
+    },
+    "PipeSourceRabbitMQBrokerParameters": "aws:PipeSourceRabbitMQBrokerParameters",
+    "VirtualHost": {
+      "@id": "aws:VirtualHost",
+      "@type": "xsd:string"
+    },
+    "PipeSourceSelfManagedKafkaParameters": "aws:PipeSourceSelfManagedKafkaParameters",
+    "AdditionalBootstrapServers": {
+      "@id": "aws:AdditionalBootstrapServers",
+      "@type": "xsd:string"
+    },
+    "ServerRootCaCertificate": {
+      "@id": "aws:ServerRootCaCertificate",
+      "@type": "xsd:string"
+    },
+    "Vpc": {
+      "@id": "aws:Vpc",
+      "@type": "xsd:string"
+    },
+    "PipeSourceSqsQueueParameters": "aws:PipeSourceSqsQueueParameters",
+    "PipeTargetBatchJobParameters": "aws:PipeTargetBatchJobParameters",
+    "ArrayProperties": {
+      "@id": "aws:ArrayProperties",
+      "@type": "xsd:string"
+    },
+    "DependsOn": {
+      "@id": "aws:DependsOn",
+      "@type": "xsd:string"
+    },
+    "JobDefinition": {
+      "@id": "aws:JobDefinition",
+      "@type": "xsd:string"
+    },
+    "JobName": {
+      "@id": "aws:JobName",
+      "@type": "xsd:string"
+    },
+    "Parameters": {
+      "@id": "aws:Parameters",
+      "@type": "xsd:string"
+    },
+    "RetryStrategy": {
+      "@id": "aws:RetryStrategy",
+      "@type": "xsd:string"
+    },
+    "PipeTargetCloudWatchLogsParameters": "aws:PipeTargetCloudWatchLogsParameters",
+    "LogStreamName": {
+      "@id": "aws:LogStreamName",
+      "@type": "xsd:string"
+    },
+    "Timestamp": {
+      "@id": "aws:Timestamp",
+      "@type": "xsd:string"
+    },
+    "PipeTargetEcsTaskParameters": "aws:PipeTargetEcsTaskParameters",
+    "CapacityProviderStrategy": {
+      "@id": "aws:CapacityProviderStrategy",
+      "@type": "xsd:string"
+    },
+    "EnableECSManagedTags": {
+      "@id": "aws:EnableECSManagedTags",
+      "@type": "xsd:string"
+    },
+    "EnableExecuteCommand": {
+      "@id": "aws:EnableExecuteCommand",
+      "@type": "xsd:string"
+    },
+    "Group": {
+      "@id": "aws:Group",
+      "@type": "xsd:string"
+    },
+    "LaunchType": {
+      "@id": "aws:LaunchType",
+      "@type": "xsd:string"
+    },
+    "Overrides": {
+      "@id": "aws:Overrides",
+      "@type": "xsd:string"
+    },
+    "PlacementConstraints": {
+      "@id": "aws:PlacementConstraints",
+      "@type": "xsd:string"
+    },
+    "PlacementStrategy": "aws:PlacementStrategy",
+    "PlatformVersion": {
+      "@id": "aws:PlatformVersion",
+      "@type": "xsd:string"
+    },
+    "PropagateTags": {
+      "@id": "aws:PropagateTags",
+      "@type": "xsd:string"
+    },
+    "ReferenceId": {
+      "@id": "aws:ReferenceId",
+      "@type": "xsd:string"
+    },
+    "TaskCount": {
+      "@id": "aws:TaskCount",
+      "@type": "xsd:string"
+    },
+    "TaskDefinitionArn": {
+      "@id": "aws:TaskDefinitionArn",
+      "@type": "xsd:string"
+    },
+    "PipeTargetEventBridgeEventBusParameters": "aws:PipeTargetEventBridgeEventBusParameters",
+    "DetailType": {
+      "@id": "aws:DetailType",
+      "@type": "xsd:string"
+    },
+    "EndpointId": {
+      "@id": "aws:EndpointId",
+      "@type": "xsd:string"
+    },
+    "Resources": {
+      "@id": "aws:Resources",
+      "@type": "xsd:string"
+    },
+    "Time": {
+      "@id": "aws:Time",
+      "@type": "xsd:string"
+    },
+    "PipeTargetHttpParameters": "aws:PipeTargetHttpParameters",
+    "PipeTargetKinesisStreamParameters": "aws:PipeTargetKinesisStreamParameters",
+    "PartitionKey": {
+      "@id": "aws:PartitionKey",
+      "@type": "xsd:string"
+    },
+    "PipeTargetLambdaFunctionParameters": "aws:PipeTargetLambdaFunctionParameters",
+    "InvocationType": {
+      "@id": "aws:InvocationType",
+      "@type": "xsd:string"
+    },
+    "PipeTargetParameters": "aws:PipeTargetParameters",
+    "BatchJobParameters": {
+      "@id": "aws:BatchJobParameters",
+      "@type": "xsd:string"
+    },
+    "CloudWatchLogsParameters": {
+      "@id": "aws:CloudWatchLogsParameters",
+      "@type": "xsd:string"
+    },
+    "EcsTaskParameters": {
+      "@id": "aws:EcsTaskParameters",
+      "@type": "xsd:string"
+    },
+    "EventBridgeEventBusParameters": {
+      "@id": "aws:EventBridgeEventBusParameters",
+      "@type": "xsd:string"
+    },
+    "LambdaFunctionParameters": {
+      "@id": "aws:LambdaFunctionParameters",
+      "@type": "xsd:string"
+    },
+    "RedshiftDataParameters": {
+      "@id": "aws:RedshiftDataParameters",
+      "@type": "xsd:string"
+    },
+    "SageMakerPipelineParameters": {
+      "@id": "aws:SageMakerPipelineParameters",
+      "@type": "xsd:string"
+    },
+    "StepFunctionStateMachineParameters": {
+      "@id": "aws:StepFunctionStateMachineParameters",
+      "@type": "xsd:string"
+    },
+    "PipeTargetRedshiftDataParameters": "aws:PipeTargetRedshiftDataParameters",
+    "Database": {
+      "@id": "aws:Database",
+      "@type": "xsd:string"
+    },
+    "DbUser": {
+      "@id": "aws:DbUser",
+      "@type": "xsd:string"
+    },
+    "SecretManagerArn": {
+      "@id": "aws:SecretManagerArn",
+      "@type": "xsd:string"
+    },
+    "Sqls": {
+      "@id": "aws:Sqls",
+      "@type": "xsd:string"
+    },
+    "StatementName": {
+      "@id": "aws:StatementName",
+      "@type": "xsd:string"
+    },
+    "WithEvent": {
+      "@id": "aws:WithEvent",
+      "@type": "xsd:string"
+    },
+    "PipeTargetSageMakerPipelineParameters": "aws:PipeTargetSageMakerPipelineParameters",
+    "PipelineParameterList": {
+      "@id": "aws:PipelineParameterList",
+      "@type": "xsd:string"
+    },
+    "PipeTargetSqsQueueParameters": "aws:PipeTargetSqsQueueParameters",
+    "MessageDeduplicationId": {
+      "@id": "aws:MessageDeduplicationId",
+      "@type": "xsd:string"
+    },
+    "MessageGroupId": {
+      "@id": "aws:MessageGroupId",
+      "@type": "xsd:string"
+    },
+    "PipeTargetStateMachineParameters": "aws:PipeTargetStateMachineParameters",
+    "PlacementConstraint": "aws:PlacementConstraint",
+    "expression": {
+      "@id": "aws:expression",
+      "@type": "xsd:string"
+    },
+    "field": {
+      "@id": "aws:field",
+      "@type": "xsd:string"
+    },
+    "QueryStringParametersMap": "aws:QueryStringParametersMap",
+    "SageMakerPipelineParameter": "aws:SageMakerPipelineParameter",
+    "SelfManagedKafkaAccessConfigurationCredentials": "aws:SelfManagedKafkaAccessConfigurationCredentials",
+    "SaslScram256Auth": {
+      "@id": "aws:SaslScram256Auth",
+      "@type": "xsd:string"
+    },
+    "SelfManagedKafkaAccessConfigurationVpc": "aws:SelfManagedKafkaAccessConfigurationVpc",
+    "SecurityGroup": {
+      "@id": "aws:SecurityGroup",
+      "@type": "xsd:string"
+    },
+    "StartPipeRequest": "aws:StartPipeRequest",
+    "StartPipeResponse": "aws:StartPipeResponse",
+    "StopPipeRequest": "aws:StopPipeRequest",
+    "StopPipeResponse": "aws:StopPipeResponse",
+    "TagMap": "aws:TagMap",
+    "TagResourceRequest": "aws:TagResourceRequest",
+    "TagResourceResponse": "aws:TagResourceResponse",
+    "Tag": "aws:Tag",
+    "Key": {
+      "@id": "aws:Key",
+      "@type": "xsd:string"
+    },
+    "UntagResourceRequest": "aws:UntagResourceRequest",
+    "UntagResourceResponse": "aws:UntagResourceResponse",
+    "UpdatePipeRequest": "aws:UpdatePipeRequest",
+    "UpdatePipeResponse": "aws:UpdatePipeResponse",
+    "UpdatePipeSourceActiveMQBrokerParameters": "aws:UpdatePipeSourceActiveMQBrokerParameters",
+    "UpdatePipeSourceDynamoDBStreamParameters": "aws:UpdatePipeSourceDynamoDBStreamParameters",
+    "UpdatePipeSourceKinesisStreamParameters": "aws:UpdatePipeSourceKinesisStreamParameters",
+    "UpdatePipeSourceManagedStreamingKafkaParameters": "aws:UpdatePipeSourceManagedStreamingKafkaParameters",
+    "UpdatePipeSourceParameters": "aws:UpdatePipeSourceParameters",
+    "UpdatePipeSourceRabbitMQBrokerParameters": "aws:UpdatePipeSourceRabbitMQBrokerParameters",
+    "UpdatePipeSourceSelfManagedKafkaParameters": "aws:UpdatePipeSourceSelfManagedKafkaParameters",
+    "UpdatePipeSourceSqsQueueParameters": "aws:UpdatePipeSourceSqsQueueParameters"
+  }
+}

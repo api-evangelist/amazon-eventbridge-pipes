@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-mq-broker-queue-name-structure.json",
+  "name": "MQBrokerQueueName",
+  "description": "MQBrokerQueueName schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "format": "password",
+  "pattern": "^[\\s\\S]*$",
+  "minLength": 1,
+  "maxLength": 1000
+}

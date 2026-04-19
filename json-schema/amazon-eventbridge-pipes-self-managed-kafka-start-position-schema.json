@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-self-managed-kafka-start-position-schema.json",
+  "title": "SelfManagedKafkaStartPosition",
+  "description": "SelfManagedKafkaStartPosition schema from Amazon EventBridge Pipes",
+  "type": "string",
+  "enum": [
+    "TRIM_HORIZON",
+    "LATEST"
+  ]
+}

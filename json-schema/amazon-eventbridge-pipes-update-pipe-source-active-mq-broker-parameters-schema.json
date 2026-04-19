@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-update-pipe-source-active-mq-broker-parameters-schema.json",
+  "title": "UpdatePipeSourceActiveMQBrokerParameters",
+  "description": "The parameters for using an Active MQ broker as a source.",
+  "type": "object",
+  "properties": {
+    "BatchSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMax10000"
+        },
+        {
+          "description": "The maximum number of records to include in each batch."
+        }
+      ]
+    },
+    "Credentials": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MQBrokerAccessCredentials"
+        },
+        {
+          "description": "The credentials needed to access the resource."
+        }
+      ]
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumBatchingWindowInSeconds"
+        },
+        {
+          "description": "The maximum length of a time to wait for events."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Credentials"
+  ]
+}

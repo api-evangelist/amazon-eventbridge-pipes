@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-update-pipe-source-sqs-queue-parameters-structure.json",
+  "name": "UpdatePipeSourceSqsQueueParameters",
+  "description": "The parameters for using a Amazon SQS stream as a source.",
+  "type": "object",
+  "properties": {
+    "BatchSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LimitMax10000"
+        },
+        {
+          "description": "The maximum number of records to include in each batch."
+        }
+      ]
+    },
+    "MaximumBatchingWindowInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumBatchingWindowInSeconds"
+        },
+        {
+          "description": "The maximum length of a time to wait for events."
+        }
+      ]
+    }
+  }
+}

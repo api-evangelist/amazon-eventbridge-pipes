@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-schema/amazon-eventbridge-pipes-pipe-target-sage-maker-pipeline-parameters-schema.json",
+  "title": "PipeTargetSageMakerPipelineParameters",
+  "description": "The parameters for using a SageMaker pipeline as a target.",
+  "type": "object",
+  "properties": {
+    "PipelineParameterList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SageMakerPipelineParameterList"
+        },
+        {
+          "description": "List of Parameter names and values for SageMaker Model Building Pipeline execution."
+        }
+      ]
+    }
+  }
+}

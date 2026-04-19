@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-pipes/refs/heads/main/json-structure/amazon-eventbridge-pipes-batch-array-size-structure.json",
+  "name": "BatchArraySize",
+  "description": "BatchArraySize schema from Amazon EventBridge Pipes",
+  "type": "int32",
+  "minimum": 2,
+  "maximum": 10000
+}
