@@ -1,10 +1,11 @@
 name: Amazon EventBridge Pipes
-description: Amazon EventBridge Pipes helps you create point-to-point integrations between event producers and consumers with optional transform, filter, and enrich steps. It reduces the amount of 
-  integration code you need to write and maintain when building event-driven applications.
+description: Amazon EventBridge Pipes helps you create point-to-point integrations between event producers and consumers with
+  optional transform, filter, and enrich steps. It reduces the amount of integration code you need to write and maintain when
+  building event-driven applications.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/eventbridge/pipes/
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
 - Amazon Web Services
@@ -15,7 +16,8 @@ tags:
 - Serverless
 apis:
 - name: Amazon EventBridge Pipes API
-  description: API for creating and managing pipes that connect event sources to targets with optional filtering, enrichment, and transformation capabilities.
+  description: API for creating and managing pipes that connect event sources to targets with optional filtering, enrichment,
+    and transformation capabilities.
   humanURL: https://aws.amazon.com/eventbridge/pipes/
   baseURL: https://pipes.amazonaws.com
   tags:
@@ -44,6 +46,8 @@ apis:
     url: json-schema/amazon-eventbridge-pipes-arn-schema.json
   - type: JSONLD
     url: json-ld/amazon-eventbridge-pipes-context.jsonld
+  - type: NaftikoCapability
+    url: capabilities/amazon-eventbridge-pipes.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -85,10 +89,6 @@ common:
   url: https://aws.amazon.com/contact-us/
 - type: SpectralRules
   url: rules/amazon-eventbridge-pipes-spectral-rules.yml
-- type: NaftikoCapability
-  url: capabilities/amazon-eventbridge-pipes-capability.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/api.yaml
 - type: Vocabulary
   url: vocabulary/amazon-eventbridge-pipes-vocabulary.yaml
 - type: Features
@@ -128,15 +128,15 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
