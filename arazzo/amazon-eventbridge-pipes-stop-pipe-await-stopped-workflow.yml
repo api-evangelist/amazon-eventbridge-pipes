@@ -1,0 +1,81 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Pipes Stop Pipe and Await Stopped
+  summary: Stop a running pipe, then poll DescribePipe until it confirms the pipe has fully reached the STOPPED state.
+  description: >-
+    Stopping a pipe is asynchronous: StopPipe requests the STOPPED desired state
+    and the pipe passes through a STOPPING state before it is fully stopped.
+    This workflow issues StopPipe and then polls DescribePipe, looping while the
+    pipe is still STOPPING and ending once CurrentState is STOPPED. This is the
+    safe pattern to confirm a pipe has drained before deleting or reconfiguring
+    it. Each step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pipesApi
+  url: ../openapi/amazon-eventbridge-pipes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: stop-pipe-await-stopped
+  summary: Stop a pipe and poll until it has fully reached the STOPPED state.
+  description: >-
+    Requests that a pipe stop, then repeatedly calls DescribePipe and branches
+    on the reported CurrentState, looping while the pipe is STOPPING and ending
+    once it is STOPPED.
+  inputs:
+    type: object
+    required:
+    - name
+    properties:
+      name:
+        type: string
+        description: The name of the pipe to stop (1-64 chars, ^[\.\-_A-Za-z0-9]+$).
+  steps:
+  - stepId: stopPipe
+    description: >-
+      Request that the pipe transition to the STOPPED state, halting reads from
+      the source.
+    operationId: StopPipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      arn: $response.body#/Arn
+  - stepId: pollStopped
+    description: >-
+      Read the pipe state. While it is still STOPPING, loop back and poll again;
+      once it is STOPPED the workflow ends.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      stateReason: $response.body#/StateReason
+    onSuccess:
+    - name: stillStopping
+      type: goto
+      stepId: pollStopped
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState != 'STOPPED'
+        type: jsonpath
+    - name: stopped
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState == 'STOPPED'
+        type: jsonpath
+  outputs:
+    pipeArn: $steps.stopPipe.outputs.arn
+    finalState: $steps.pollStopped.outputs.currentState
+    stateReason: $steps.pollStopped.outputs.stateReason

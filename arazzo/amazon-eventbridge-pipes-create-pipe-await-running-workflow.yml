@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Pipes Create Pipe and Await Running
+  summary: Create a pipe with DesiredState RUNNING, then poll DescribePipe until it reports CurrentState RUNNING.
+  description: >-
+    Provisioning an EventBridge pipe is asynchronous: CreatePipe returns
+    immediately with the pipe in a CREATING state, and the pipe only begins
+    moving events once it transitions to RUNNING. This workflow creates a pipe
+    that wires a source to a target through an IAM role with DesiredState set to
+    RUNNING, then repeatedly calls DescribePipe and branches on the reported
+    CurrentState until the pipe is RUNNING. Each step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pipesApi
+  url: ../openapi/amazon-eventbridge-pipes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-pipe-await-running
+  summary: Create a pipe and poll until it reaches the RUNNING state.
+  description: >-
+    Creates a pipe connecting a source to a target via a role, requesting the
+    RUNNING desired state, then polls DescribePipe and loops while the pipe is
+    still transitioning, ending once CurrentState is RUNNING.
+  inputs:
+    type: object
+    required:
+    - name
+    - roleArn
+    - source
+    - target
+    properties:
+      name:
+        type: string
+        description: The name of the pipe to create (1-64 chars, ^[\.\-_A-Za-z0-9]+$).
+      roleArn:
+        type: string
+        description: The ARN of the IAM role that allows the pipe to send data to the target.
+      source:
+        type: string
+        description: The ARN of the source resource for the pipe.
+      target:
+        type: string
+        description: The ARN of the target resource for the pipe.
+      description:
+        type: string
+        description: An optional description of the pipe.
+  steps:
+  - stepId: createPipe
+    description: >-
+      Create the pipe wiring the source to the target through the supplied role
+      and request that it move to the RUNNING desired state.
+    operationId: CreatePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    requestBody:
+      contentType: application/json
+      payload:
+        RoleArn: $inputs.roleArn
+        Source: $inputs.source
+        Target: $inputs.target
+        Description: $inputs.description
+        DesiredState: RUNNING
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pipeArn: $response.body#/Arn
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      creationTime: $response.body#/CreationTime
+  - stepId: pollState
+    description: >-
+      Read the current state of the pipe. If it is still transitioning toward
+      RUNNING, loop back and poll again; once it is RUNNING the workflow ends.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      stateReason: $response.body#/StateReason
+      arn: $response.body#/Arn
+    onSuccess:
+    - name: stillStarting
+      type: goto
+      stepId: pollState
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState != 'RUNNING'
+        type: jsonpath
+    - name: running
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState == 'RUNNING'
+        type: jsonpath
+  outputs:
+    pipeArn: $steps.createPipe.outputs.pipeArn
+    finalState: $steps.pollState.outputs.currentState
+    stateReason: $steps.pollState.outputs.stateReason

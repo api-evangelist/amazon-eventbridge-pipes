@@ -49,6 +49,27 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-eventbridge-pipes.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-eventbridge-pipes-create-pipe-await-running-workflow.yml
+    name: EventBridge Pipes Create Pipe and Await Running
+    summary: Create a pipe with DesiredState RUNNING, then poll DescribePipe until it reports CurrentState RUNNING.
+  - url: arazzo/amazon-eventbridge-pipes-create-start-describe-workflow.yml
+    name: EventBridge Pipes Create, Start and Confirm
+    summary: Create a pipe in the STOPPED state, explicitly start it, then describe it to confirm the running configuration.
+  - url: arazzo/amazon-eventbridge-pipes-describe-update-await-workflow.yml
+    name: EventBridge Pipes Describe, Update and Await
+    summary: Read an existing pipe, apply a configuration update, then poll until the pipe settles back to a stable state.
+  - url: arazzo/amazon-eventbridge-pipes-drain-and-delete-pipe-workflow.yml
+    name: EventBridge Pipes Drain and Delete Pipe
+    summary: Safely decommission a pipe by stopping it, polling until it is STOPPED, then deleting it.
+  - url: arazzo/amazon-eventbridge-pipes-stop-pipe-await-stopped-workflow.yml
+    name: EventBridge Pipes Stop Pipe and Await Stopped
+    summary: Stop a running pipe, then poll DescribePipe until it confirms the pipe has fully reached the STOPPED state.
+  - url: arazzo/amazon-eventbridge-pipes-tag-pipe-and-verify-workflow.yml
+    name: EventBridge Pipes Tag Pipe and Verify
+    summary: Resolve a pipe's ARN by name, apply tags to it, then list the resource tags to verify they were stored.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

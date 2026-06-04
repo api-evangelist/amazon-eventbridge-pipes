@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Pipes Describe, Update and Await
+  summary: Read an existing pipe, apply a configuration update, then poll until the pipe settles back to a stable state.
+  description: >-
+    Updating a pipe is asynchronous and briefly moves the pipe into an UPDATING
+    state before it settles. This workflow first describes the existing pipe to
+    capture the role ARN required by the update call, applies an update that
+    changes the description and desired state, and then polls DescribePipe,
+    looping while the pipe is still UPDATING and ending once it reaches a stable
+    state. Each step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pipesApi
+  url: ../openapi/amazon-eventbridge-pipes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: describe-update-await
+  summary: Describe a pipe, update it, then poll until the update settles.
+  description: >-
+    Reads the current pipe configuration to recover its role ARN, submits an
+    UpdatePipe call that revises the description and desired state, then polls
+    DescribePipe until the pipe is no longer in the UPDATING state.
+  inputs:
+    type: object
+    required:
+    - name
+    - desiredState
+    properties:
+      name:
+        type: string
+        description: The name of the pipe to update (1-64 chars, ^[\.\-_A-Za-z0-9]+$).
+      desiredState:
+        type: string
+        description: The state the pipe should be in after the update (RUNNING or STOPPED).
+      description:
+        type: string
+        description: The new description to apply to the pipe.
+      roleArn:
+        type: string
+        description: >-
+          Optional override for the IAM role ARN. When omitted the role ARN read
+          from the existing pipe via DescribePipe is reused.
+  steps:
+  - stepId: describeCurrent
+    description: >-
+      Read the existing pipe to capture its current role ARN and state before
+      submitting the update.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      roleArn: $response.body#/RoleArn
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+  - stepId: applyUpdate
+    description: >-
+      Submit the update revising the pipe description and desired state, reusing
+      the role ARN recovered from the describe step unless one was supplied.
+    operationId: UpdatePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    requestBody:
+      contentType: application/json
+      payload:
+        RoleArn: $steps.describeCurrent.outputs.roleArn
+        Description: $inputs.description
+        DesiredState: $inputs.desiredState
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      lastModifiedTime: $response.body#/LastModifiedTime
+  - stepId: pollSettled
+    description: >-
+      Read the pipe state after the update. While it is still UPDATING, loop and
+      poll again; once it has settled the workflow ends.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      stateReason: $response.body#/StateReason
+    onSuccess:
+    - name: stillUpdating
+      type: goto
+      stepId: pollSettled
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState == 'UPDATING'
+        type: jsonpath
+    - name: settled
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState != 'UPDATING'
+        type: jsonpath
+  outputs:
+    updatedDesiredState: $steps.applyUpdate.outputs.desiredState
+    finalState: $steps.pollSettled.outputs.currentState
+    stateReason: $steps.pollSettled.outputs.stateReason

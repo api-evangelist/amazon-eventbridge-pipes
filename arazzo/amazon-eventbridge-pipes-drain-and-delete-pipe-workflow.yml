@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Pipes Drain and Delete Pipe
+  summary: Safely decommission a pipe by stopping it, polling until it is STOPPED, then deleting it.
+  description: >-
+    Deleting a running pipe can interrupt in-flight events, so the safe
+    decommission pattern is to stop the pipe first, wait until it has fully
+    reached the STOPPED state, and only then delete it. This workflow issues
+    StopPipe, polls DescribePipe until CurrentState is STOPPED, and finally
+    calls DeletePipe. Each step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pipesApi
+  url: ../openapi/amazon-eventbridge-pipes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: drain-and-delete-pipe
+  summary: Stop a pipe, wait until it is STOPPED, then delete it.
+  description: >-
+    Requests that a pipe stop, polls DescribePipe until it reaches the STOPPED
+    state, then deletes the pipe so it is fully removed without interrupting
+    in-flight events.
+  inputs:
+    type: object
+    required:
+    - name
+    properties:
+      name:
+        type: string
+        description: The name of the pipe to drain and delete (1-64 chars, ^[\.\-_A-Za-z0-9]+$).
+  steps:
+  - stepId: stopPipe
+    description: >-
+      Request that the pipe transition to the STOPPED state before deletion.
+    operationId: StopPipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+  - stepId: awaitStopped
+    description: >-
+      Read the pipe state. While it is not yet STOPPED, loop and poll again;
+      once it is STOPPED proceed to deletion.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+    onSuccess:
+    - name: stillStopping
+      type: goto
+      stepId: awaitStopped
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState != 'STOPPED'
+        type: jsonpath
+    - name: readyToDelete
+      type: goto
+      stepId: deletePipe
+      criteria:
+      - context: $response.body
+        condition: $.CurrentState == 'STOPPED'
+        type: jsonpath
+  - stepId: deletePipe
+    description: >-
+      Delete the now-stopped pipe, removing it from the account.
+    operationId: DeletePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      arn: $response.body#/Arn
+  outputs:
+    deletedPipeArn: $steps.deletePipe.outputs.arn
+    finalState: $steps.deletePipe.outputs.currentState

@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Pipes Create, Start and Confirm
+  summary: Create a pipe in the STOPPED state, explicitly start it, then describe it to confirm the running configuration.
+  description: >-
+    A common operational pattern is to provision a pipe in a paused (STOPPED)
+    state so its configuration can be reviewed, then deliberately start it when
+    ready. This workflow creates a pipe with DesiredState STOPPED, calls
+    StartPipe to request the RUNNING state, and finally calls DescribePipe to
+    confirm the pipe's reported state and read back its full configuration. Each
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pipesApi
+  url: ../openapi/amazon-eventbridge-pipes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-start-describe
+  summary: Create a stopped pipe, start it, then describe it to confirm.
+  description: >-
+    Creates a pipe in the STOPPED state, issues StartPipe to begin processing,
+    and reads the pipe back with DescribePipe to surface its current and desired
+    state plus its full source/target configuration.
+  inputs:
+    type: object
+    required:
+    - name
+    - roleArn
+    - source
+    - target
+    properties:
+      name:
+        type: string
+        description: The name of the pipe to create (1-64 chars, ^[\.\-_A-Za-z0-9]+$).
+      roleArn:
+        type: string
+        description: The ARN of the IAM role that allows the pipe to send data to the target.
+      source:
+        type: string
+        description: The ARN of the source resource for the pipe.
+      target:
+        type: string
+        description: The ARN of the target resource for the pipe.
+      description:
+        type: string
+        description: An optional description of the pipe.
+  steps:
+  - stepId: createStopped
+    description: >-
+      Create the pipe with DesiredState STOPPED so it is provisioned but does
+      not begin processing events until explicitly started.
+    operationId: CreatePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    requestBody:
+      contentType: application/json
+      payload:
+        RoleArn: $inputs.roleArn
+        Source: $inputs.source
+        Target: $inputs.target
+        Description: $inputs.description
+        DesiredState: STOPPED
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pipeArn: $response.body#/Arn
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+  - stepId: startPipe
+    description: >-
+      Request that the newly created pipe transition to the RUNNING state so it
+      begins reading from the source and delivering to the target.
+    operationId: StartPipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      lastModifiedTime: $response.body#/LastModifiedTime
+  - stepId: confirmPipe
+    description: >-
+      Read the pipe back to confirm its reported state and surface its full
+      source, target, and enrichment configuration.
+    operationId: DescribePipe
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentState: $response.body#/CurrentState
+      desiredState: $response.body#/DesiredState
+      source: $response.body#/Source
+      target: $response.body#/Target
+      stateReason: $response.body#/StateReason
+  outputs:
+    pipeArn: $steps.createStopped.outputs.pipeArn
+    startedState: $steps.startPipe.outputs.currentState
+    confirmedState: $steps.confirmPipe.outputs.currentState
