@@ -49,6 +49,14 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-eventbridge-pipes-context.jsonld
 common:
+  - type: TrustCenter
+    url: security/amazon-eventbridge-pipes-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-eventbridge-pipes-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-eventbridge-pipes-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-eventbridge-pipes-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-eventbridge-pipes/overview
   - type: Arazzo
