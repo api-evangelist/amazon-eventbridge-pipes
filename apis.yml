@@ -49,6 +49,8 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-eventbridge-pipes-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-eventbridge-pipes-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-eventbridge-pipes-trust-center.yml
   - type: VulnerabilityDisclosure
