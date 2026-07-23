@@ -1,0 +1,447 @@
+openapi: 3.0.0
+info:
+  version: '2015-10-07'
+  x-release: v4
+  title: Amazon EventBridge Pipes Tags API
+  description: 'Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company’s applications. With Pipes, the target can be any available EventBridge target. To set up a pipe, you select the event source, add optional event filtering, define optional enrichment, and select the target for the event data. '
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: pipes
+  x-aws-signingName: pipes
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/pipes-2015-10-07.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://pipes.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon EventBridge Pipes multi-region endpoint
+- url: https://pipes.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon EventBridge Pipes multi-region endpoint
+- url: http://pipes.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon EventBridge Pipes endpoint for China (Beijing) and China (Ningxia)
+- url: https://pipes.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon EventBridge Pipes endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Tags
+paths:
+  /tags/{resourceArn}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListTagsForResource
+      description: Displays the tags associated with a pipe.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTagsForResourceResponse'
+              examples:
+                ListTagsForResource200Example:
+                  summary: Default ListTagsForResource 200 response
+                  x-microcks-default: true
+                  value:
+                    tags: example
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+              examples:
+                ListTagsForResource480Example:
+                  summary: Default ListTagsForResource 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                ListTagsForResource481Example:
+                  summary: Default ListTagsForResource 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                ListTagsForResource482Example:
+                  summary: Default ListTagsForResource 482 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The ARN of the pipe for which you want to view tags.
+        schema:
+          type: string
+          pattern: ^arn:aws([a-z]|\-)*:([a-zA-Z0-9\-]+):([a-z]|\d|\-)*:([0-9]{12})?:(.+)$
+          minLength: 1
+          maxLength: 1600
+      summary: Amazon EventBridge Pipes ListTagsForResource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+    post:
+      operationId: TagResource
+      description: <p>Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with a pipe that already has tags. If you specify a new tag key, this tag is appended to the list of tags associated with the pipe. If you specify a tag key that is already associated with the pipe, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a pipe.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResourceResponse'
+              examples:
+                TagResource200Example:
+                  summary: Default TagResource 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+              examples:
+                TagResource480Example:
+                  summary: Default TagResource 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                TagResource481Example:
+                  summary: Default TagResource 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                TagResource482Example:
+                  summary: Default TagResource 482 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The ARN of the pipe.
+        schema:
+          type: string
+          pattern: ^arn:aws([a-z]|\-)*:([a-zA-Z0-9\-]+):([a-z]|\d|\-)*:([0-9]{12})?:(.+)$
+          minLength: 1
+          maxLength: 1600
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - tags
+              properties:
+                tags:
+                  description: The list of key-value pairs associated with the pipe.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+            examples:
+              TagResourceRequestExample:
+                summary: Default TagResource request
+                x-microcks-default: true
+                value:
+                  tags: {}
+      summary: Amazon EventBridge Pipes TagResource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+  /tags/{resourceArn}#tagKeys:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: UntagResource
+      description: Removes one or more tags from the specified pipes.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UntagResourceResponse'
+              examples:
+                UntagResource200Example:
+                  summary: Default UntagResource 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+              examples:
+                UntagResource480Example:
+                  summary: Default UntagResource 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                UntagResource481Example:
+                  summary: Default UntagResource 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                UntagResource482Example:
+                  summary: Default UntagResource 482 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The ARN of the pipe.
+        schema:
+          type: string
+          pattern: ^arn:aws([a-z]|\-)*:([a-zA-Z0-9\-]+):([a-z]|\d|\-)*:([0-9]{12})?:(.+)$
+          minLength: 1
+          maxLength: 1600
+      - name: tagKeys
+        in: query
+        required: true
+        description: The list of tag keys to remove from the pipe.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagKey'
+          minItems: 0
+          maxItems: 50
+      summary: Amazon EventBridge Pipes UntagResource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+components:
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ValidationException: {}
+    NotFoundException: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+      format: password
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The list of key-value pairs to associate with the pipe.
+    TagResourceResponse:
+      type: object
+      properties: {}
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    InternalException: {}
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/pipes/
+x-hasEquivalentPaths: true
