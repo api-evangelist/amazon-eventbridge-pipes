@@ -1,0 +1,16 @@
+{
+  "provider": "amazon-eventbridge-pipes",
+  "sources": [
+    "amazon-eventbridge-pipes-pipes-api-openapi.yml",
+    "amazon-eventbridge-pipes-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-eventbridge-pipes-pipes-api-openapi.yml",
+    "amazon-eventbridge-pipes-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
