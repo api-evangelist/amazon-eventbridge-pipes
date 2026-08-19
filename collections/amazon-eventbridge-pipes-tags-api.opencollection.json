@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EventBridge Pipes Tags API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes ListTagsForResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://pipes.{region}.amazonaws.com/tags/:resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the pipe for which you want to view tags."
+              }
+            ]
+          },
+          "docs": "Displays the tags associated with a pipe."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes TagResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://pipes.{region}.amazonaws.com/tags/:resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the pipe."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with a pipe that already has tags. If you specify a new ta"
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes UntagResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://pipes.{region}.amazonaws.com/tags/:resourceArn#tagKeys",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the pipe."
+              },
+              {
+                "name": "tagKeys",
+                "value": "",
+                "type": "query",
+                "description": "The list of tag keys to remove from the pipe."
+              }
+            ]
+          },
+          "docs": "Removes one or more tags from the specified pipes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

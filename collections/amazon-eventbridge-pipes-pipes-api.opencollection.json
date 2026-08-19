@@ -1,0 +1,413 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EventBridge Pipes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pipes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes DescribePipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ]
+          },
+          "docs": "Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes CreatePipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes UpdatePipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that are included in the request are changed, the rest are unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that if you don't specify an "
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes DeletePipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ]
+          },
+          "docs": "Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes ListPipes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "CurrentState",
+                "value": "",
+                "type": "query",
+                "description": "The state the pipe is in."
+              },
+              {
+                "name": "DesiredState",
+                "value": "",
+                "type": "query",
+                "description": "The state the pipe should be in."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of pipes to include in the response."
+              },
+              {
+                "name": "NamePrefix",
+                "value": "",
+                "type": "query",
+                "description": "A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name."
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error."
+              },
+              {
+                "name": "SourcePrefix",
+                "value": "",
+                "type": "query",
+                "description": "The prefix matching the pipe source."
+              },
+              {
+                "name": "TargetPrefix",
+                "value": "",
+                "type": "query",
+                "description": "The prefix matching the pipe target."
+              }
+            ]
+          },
+          "docs": "Get the pipes associated with this account. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes StartPipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name/start",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ]
+          },
+          "docs": "Start an existing pipe."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Pipes StopPipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://pipes.{region}.amazonaws.com/v1/pipes/:Name/stop",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pipe."
+              }
+            ]
+          },
+          "docs": "Stop an existing pipe."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
