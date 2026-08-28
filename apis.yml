@@ -3,6 +3,18 @@ description: >-
   Amazon EventBridge Pipes helps you create point-to-point integrations between event producers and consumers with
   optional transform, filter, and enrich steps. It reduces the amount of integration code you need to write and maintain
   when building event-driven applications.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
