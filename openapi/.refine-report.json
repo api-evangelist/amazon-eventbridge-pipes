@@ -1,8 +1,7 @@
 {
   "provider": "amazon-eventbridge-pipes",
   "sources": [
-    "amazon-eventbridge-pipes-pipes-api-openapi.yml",
-    "amazon-eventbridge-pipes-tags-api-openapi.yml"
+    "_original/amazon-eventbridge-pipes-openapi.yml"
   ],
   "outputs": [
     "amazon-eventbridge-pipes-pipes-api-openapi.yml",
@@ -12,7 +11,24 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-eventbridge-pipes-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths POST /v1/pipes/{Name} -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths DELETE /v1/pipes/{Name} -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths GET /v1/pipes/{Name} -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths PUT /v1/pipes/{Name} -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths GET /v1/pipes -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths GET /tags/{resourceArn} -> Tags",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths POST /tags/{resourceArn} -> Tags",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths POST /v1/pipes/{Name}/start -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths POST /v1/pipes/{Name}/stop -> Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
+    "amazon-eventbridge-pipes-openapi.yml: declared missing tag: Pipes",
+    "amazon-eventbridge-pipes-openapi.yml: declared missing tag: Tags",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-eventbridge-pipes-pipes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-eventbridge-pipes-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
