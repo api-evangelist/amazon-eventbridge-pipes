@@ -368,13 +368,39 @@ paths:
       tags:
       - Tags
 components:
+  schemas:
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    NotFoundException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    ValidationException: {}
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+    InternalException: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+      format: password
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The list of key-value pairs to associate with the pipe.
+    TagResourceResponse:
+      type: object
+      properties: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -393,14 +419,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -411,38 +437,12 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    NotFoundException: {}
-    ValidationException: {}
-    InternalException: {}
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The list of key-value pairs to associate with the pipe.
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-      format: password
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
