@@ -95,7 +95,7 @@ plans:
   unit: per million events ingested for discovery
   included_quota: 5 million ingested events per month free; Schema Registry free
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
@@ -154,18 +154,18 @@ x-canonical:
     - other
   - name: Scheduler (example rate)
     access: other
-    model: subscription
+    model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - other
   - name: API destinations (example rate)
     access: other
-    model: subscription
+    model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - other
   - name: Event replay - archive processing (example rate)
