@@ -5,6 +5,9 @@ artifacts:
   agentic-access/amazon-eventbridge-pipes-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-eventbridge-pipes-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   arazzo/amazon-eventbridge-pipes-create-pipe-await-running-workflow.yml:
     method: derived
     evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
@@ -26,6 +29,15 @@ artifacts:
   authentication/amazon-eventbridge-pipes-authentication.yml:
     method: derived
     evidence: declared in the artifact
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  cli/amazon-eventbridge-pipes-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-eventbridge-pipes-pipes-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-eventbridge-pipes-pipes-api
@@ -44,6 +56,21 @@ artifacts:
   collections/amazon-eventbridge-pipes.postman_collection.json:
     method: derived
     evidence: openapi/amazon-eventbridge-pipes
+  conformance/amazon-eventbridge-pipes-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-eventbridge-pipes-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-eventbridge-pipes-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-eventbridge-pipes-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-eventbridge-pipes-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-eventbridge-pipes-arn-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -635,6 +662,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-eventbridge-pipes-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -1817,7 +1847,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -1886,16 +1916,33 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-eventbridge-pipes-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-eventbridge-pipes-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-eventbridge-pipes-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-eventbridge-pipes-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-eventbridge-pipes-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-eventbridge-pipes-pipes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-eventbridge-pipes-tags-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-eventbridge-pipes-packages.yml:
+    method: unknown
+    evidence: no authorship recorded
+  patterns/amazon-eventbridge-pipes-patterns.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
   plans/amazon-eventbridge-pipes-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1908,10 +1955,16 @@ artifacts:
   postman/amazon-eventbridge-pipes.postman_collection.json:
     method: derived
     evidence: openapi/amazon-eventbridge-pipes
+  privacy/amazon-eventbridge-pipes-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-eventbridge-pipes-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-eventbridge-pipes-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-eventbridge-pipes-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-eventbridge-pipes-spectral-rules.yml:
@@ -1930,8 +1983,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/pipes-2015-10-07.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/pipes/service/2015-10-07/pipes-2015-10-07.json
+      (sha256 9ab8abf2fa45, fetched 2026-11-11T21:09:44+00:00)
+  terms/amazon-eventbridge-pipes-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-eventbridge-pipes-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-eventbridge-pipes-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-eventbridge-pipes-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-eventbridge-pipes-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-eventbridge-pipes-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-eventbridge-pipes-well-known.yml:
     method: unknown
     evidence: no authorship recorded

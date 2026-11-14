@@ -1,7 +1,8 @@
 name: Amazon EventBridge Pipes
-description: Amazon EventBridge Pipes helps you create point-to-point integrations between event producers
-  and consumers with optional transform, filter, and enrich steps. It reduces the amount of integration
-  code you need to write and maintain when building event-driven applications.
+
+description: Amazon EventBridge Pipes helps you create point-to-point integrations between event producers and consumers with optional transform,
+  filter, and enrich steps. It reduces the amount of integration code you need to write and maintain when building event-driven applications.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -14,6 +15,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -26,13 +28,18 @@ accessModel:
   - plans
   - authentication
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+
 url: https://aws.amazon.com/eventbridge/pipes/
+
 created: '2024-01-15'
+
 modified: '2026-09-16'
+
 specificationVersion: '0.23'
+
 tags:
 - Amazon Web Services
 - Event-Driven
@@ -46,64 +53,50 @@ tags_raw:
 - Integration
 - Messaging
 - Serverless
-apis:
-- aid: amazon-eventbridge-pipes:amazon-eventbridge-pipes-pipes-api
-  name: Amazon EventBridge Pipes API
-  description: The Pipes API from Amazon EventBridge Pipes — 4 operation(s) for pipes.
-  humanURL: https://aws.amazon.com/eventbridge/pipes/
-  baseURL: https://pipes.amazonaws.com
-  tags:
-  - Pipes
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-eventbridge-pipes-pipes-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html
-  - type: APIReference
-    url: https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/
-  - type: GettingStarted
-    url: https://aws.amazon.com/eventbridge/pipes/
-  - type: Pricing
-    url: https://aws.amazon.com/eventbridge/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/eventbridge/faqs/
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-or-json-path-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-or-url-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-eventbridge-pipes-context.jsonld
-- aid: amazon-eventbridge-pipes:amazon-eventbridge-pipes-tags-api
-  name: Amazon EventBridge Pipes Tags API
-  description: The Tags API from Amazon EventBridge Pipes — 2 operation(s) for tags.
-  humanURL: https://aws.amazon.com/eventbridge/pipes/
-  baseURL: https://pipes.amazonaws.com
-  tags:
-  - Tags
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-eventbridge-pipes-tags-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html
-  - type: APIReference
-    url: https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/
-  - type: GettingStarted
-    url: https://aws.amazon.com/eventbridge/pipes/
-  - type: Pricing
-    url: https://aws.amazon.com/eventbridge/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/eventbridge/faqs/
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-or-json-path-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-or-url-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-eventbridge-pipes-arn-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-eventbridge-pipes-context.jsonld
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
+- type: Conventions
+  url: conventions/amazon-eventbridge-pipes-conventions.yml
+- type: Spectral
+  url: rules/amazon-eventbridge-pipes-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-eventbridge-pipes-rules.yml
+- type: Spectral
+  url: rules/amazon-eventbridge-pipes-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-eventbridge-pipes-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-eventbridge-pipes-data-model.yml
+- type: CLI
+  url: cli/amazon-eventbridge-pipes-cli.yml
+- type: Lifecycle
+  url: lifecycle/amazon-eventbridge-pipes-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-eventbridge-pipes-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-eventbridge-pipes-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-eventbridge-pipes-llms.txt
+- type: SecurityTxt
+  url: well-known/amazon-eventbridge-pipes-security.txt
+- type: SecurityTxt
+  url: well-known/amazon-eventbridge-pipes-repost-security.txt
+- type: WellKnown
+  url: well-known/amazon-eventbridge-pipes-well-known.yml
+- type: Hosts
+  url: hosts/amazon-eventbridge-pipes-hosts.yml
+- type: Vendors
+  url: vendors/amazon-eventbridge-pipes-vendors.yml
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: APIReference
+  url: https://docs.aws.amazon.com/cli/latest/reference/events/index.html
+- type: GettingStarted
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds
 - type: Plans
   url: plans/amazon-eventbridge-pipes-plans-pricing.yml
 - type: RateLimits
@@ -220,6 +213,75 @@ common:
     description: Connect Apache Kafka and Amazon MSK as event sources
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
+- type: DataProcessing
+  url: privacy/amazon-eventbridge-pipes-privacy-policy.yml
+- type: UsageTerms
+  url: terms/amazon-eventbridge-pipes-terms-of-service.yml
+- type: Eligibility
+  url: eligibility/amazon-eventbridge-pipes-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/amazon-eventbridge-pipes-ai-preferences.yml
+
+apis:
+- aid: amazon-eventbridge-pipes:amazon-eventbridge-pipes-pipes-api
+  name: Amazon EventBridge Pipes API
+  description: The Pipes API from Amazon EventBridge Pipes — 4 operation(s) for pipes.
+  humanURL: https://aws.amazon.com/eventbridge/pipes/
+  baseURL: https://pipes.amazonaws.com
+  tags:
+  - Pipes
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-eventbridge-pipes-pipes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/eventbridge/pipes/
+  - type: Pricing
+    url: https://aws.amazon.com/eventbridge/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/eventbridge/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-arn-or-json-path-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-arn-or-url-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-arn-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-eventbridge-pipes-context.jsonld
+- aid: amazon-eventbridge-pipes:amazon-eventbridge-pipes-tags-api
+  name: Amazon EventBridge Pipes Tags API
+  description: The Tags API from Amazon EventBridge Pipes — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/eventbridge/pipes/
+  baseURL: https://pipes.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-eventbridge-pipes-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/eventbridge/pipes/
+  - type: Pricing
+    url: https://aws.amazon.com/eventbridge/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/eventbridge/faqs/
+  - type: JSONLD
+    url: json-ld/amazon-eventbridge-pipes-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-list-tags-for-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-tag-value-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-tag-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-pipes-untag-resource-response-schema.json
+
 integrations:
 - name: Sign in
 - name: Agent Mode
@@ -230,8 +292,12 @@ integrations:
 - name: Become a Channel Partner
 - name: Sell in AWS Marketplace
 - name: Manage Your Account
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v6
